@@ -10,10 +10,10 @@ export default function ({ width, height, color }) {
     backgroundColor: color
   };
 
-  return (
-    <div style={style}>
-      <Arrow size={height} color={color} direction="left" />
-      <Arrow size={height} color={color} direction="right" />
-    </div>
-  )
+  return React.createElement(
+    "div",
+    { style: style },
+    React.createElement(Arrow, { size: height, color: color, direction: "left" }),
+    React.createElement(Arrow, { size: height, color: color, direction: "right" })
+  );
 }
