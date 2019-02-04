@@ -15,10 +15,10 @@ export default function({ width, height, color, align }) {
     style.right = '0px';
   }
 
-  return (
-    <div style={style}>
-      <Arrow size={width} color={color} direction="top" />
-      <Arrow size={width} color={color} direction="bottom" />
-    </div>
-  )
+  return React.createElement(
+    "div",
+    { style: style },
+    React.createElement(Arrow, { size: width, color: color, direction: "top" }),
+    React.createElement(Arrow, { size: width, color: color, direction: "bottom" })
+  );
 }
