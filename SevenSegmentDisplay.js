@@ -41,21 +41,25 @@ export default class SevenSegmentDisplay extends React.Component {
     const { container, vSegmentHolder } = this.computeStyle();
     const { width, height } = this.props;
 
-    return (
-      <div style={container}>
-        <HSegment width={width} height={height} color={this.onOff('a')} />
-        <div style={vSegmentHolder}>
-          <VSegment width={height} height={width} color={this.onOff('f')} align="left" />
-          <VSegment width={height} height={width} color={this.onOff('b')} align="right" />
-        </div>
-        <HSegment width={width} height={height} color={this.onOff('g')} />
-        <div style={vSegmentHolder}>
-          <VSegment width={height} height={width} color={this.onOff('e')} align="left" />
-          <VSegment width={height} height={width} color={this.onOff('c')} align="right" />
-        </div>
-        <HSegment width={width} height={height} color={this.onOff('d')} />
-      </div>
-    )
+    return React.createElement(
+      'div',
+      { style: container },
+      React.createElement(HSegment, { width: width, height: height, color: this.onOff('a') }),
+      React.createElement(
+        'div',
+        { style: vSegmentHolder },
+        React.createElement(VSegment, { width: height, height: width, color: this.onOff('f'), align: 'left' }),
+        React.createElement(VSegment, { width: height, height: width, color: this.onOff('b'), align: 'right' })
+      ),
+      React.createElement(HSegment, { width: width, height: height, color: this.onOff('g') }),
+      React.createElement(
+        'div',
+        { style: vSegmentHolder },
+        React.createElement(VSegment, { width: height, height: width, color: this.onOff('e'), align: 'left' }),
+        React.createElement(VSegment, { width: height, height: width, color: this.onOff('c'), align: 'right' })
+      ),
+      React.createElement(HSegment, { width: width, height: height, color: this.onOff('d') })
+    );
   }
 }
 
