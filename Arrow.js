@@ -29,5 +29,5 @@ export default function ({ size, color, direction }) {
   style[BORDER_COLOR_PROP[direction_inv]] = color;
   style[direction_inv] = '100%';
 
-  return <div style={style} />
+  return React.createElement("div", { style: style });
 }
